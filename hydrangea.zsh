@@ -23,6 +23,9 @@
 
 POWERLINE_SEPARATOR=''
 POWERLINE_SEPARATOR_FILL=''
+POWERLINE_SEPARATOR_REV=''
+POWERLINE_SEPARATOR_FILL_REV=''
+
 NERD_FONT_HOME=''
 NERD_FONT_DOCKER=''
 NERD_FONT_GIT=' '
@@ -146,7 +149,9 @@ prompt_hydrangea_render() {
     # -------------------------------------
     # Right PROMPT
     # -------------------------------------
-    RPROMPT="%F{"'${vi_status_color}'"}[--"'${vi_status}'"--] %F{green}%~%f"
+    POWERLINE_VI_STATUS="%k%F{"'${vi_status_color}'"}${POWERLINE_SEPARATOR_FILL_REV}%K{"'${vi_status_color}'"}%F{${TEXT_COLOR_BLACK}}"' ${vi_status} '
+    POWERLINE_FULLPATH="%K{"'${vi_status_color}'"}%F{${POWERLINE_BASE_COLOR}}${POWERLINE_SEPARATOR_FILL_REV}%K{${POWERLINE_BASE_COLOR}}%F{${TEXT_COLOR_WHITE}}%~%f"
+    RPROMPT="${POWERLINE_VI_STATUS}${POWERLINE_FULLPATH}"
 }
 
 prompt_hydrangea_setup() {
