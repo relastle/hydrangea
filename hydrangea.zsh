@@ -126,7 +126,7 @@ prompt_hydrangea_render() {
         display_host_name=""
     fi
 
-    if [[ ${HYDRANGEA_HOST_NAME_DANGER} != "" && $(Hostname) =~ "${HYDRANGEA_HOST_NAME_DANGER}" ]] then
+    if [[ ${HYDRANGEA_HOST_NAME_DANGER} != "" && $(hostname) =~ "${HYDRANGEA_HOST_NAME_DANGER}" ]] then
         POWERLINE_HOSTNAME_COLOR=${POWERLINE_DANGER_COLOR}
         BEGIN_POWERLINE_SEPERATOR="%K{${POWERLINE_DANGER_COLOR}}%F{${POWERLINE_BASE_COLOR}}$POWERLINE_SEPARATOR_FILL"
     else
