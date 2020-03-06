@@ -51,9 +51,16 @@ POWERLINE_DANGER_COLOR='9'
 POWERLINE_ACCENT_COLOR1="4" # normal blue (used for git indicator)
 
 
+# Default vi mode.
 vi_status='INSERT'
+
+# Vi mode indicator background color
 VI_INSERT_COLOR='yello'
 VI_NORMAL_COLOR='cyan'
+
+# Cursor type dependent on vi mode
+VI_NORMAL_CURSOR='\e[2 q'  # not blinking block cursor
+VI_INSERT_CURSOR='\e[6 q'  # not blinking beam cursor
 vi_status_color="${VI_INSERT_COLOR}"
 
 chpwd_flag=false
@@ -62,6 +69,8 @@ chpwd_flag=false
 prompt_hydrangea_vim_mode() {
 	vi_status="${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
 	vi_status_color="${${KEYMAP/vicmd/${VI_NORMAL_COLOR}}/(main|viins)/${VI_INSERT_COLOR}}"
+	vi_cursor="${${KEYMAP/vicmd/${VI_NORMAL_CURSOR}}/(main|viins)/${VI_INSERT_CURSOR}}"
+    echo -ne ${vi_cursor}
     zle reset-prompt
 }
 
@@ -126,7 +135,7 @@ prompt_hydrangea_render() {
         display_host_name=""
     fi
 
-    if [[ ${HYDRANGEA_HOST_NAME_DANGER} != "" && $(Hostname) =~ "${HYDRANGEA_HOST_NAME_DANGER}" ]] then
+    if [[ ${HYDRANGEA_HOST_NAME_DANGER} != "" && $(hostname) =~ "${HYDRANGEA_HOST_NAME_DANGER}" ]] then
         POWERLINE_HOSTNAME_COLOR=${POWERLINE_DANGER_COLOR}
         BEGIN_POWERLINE_SEPERATOR="%K{${POWERLINE_DANGER_COLOR}}%F{${POWERLINE_BASE_COLOR}}$POWERLINE_SEPARATOR_FILL"
     else
