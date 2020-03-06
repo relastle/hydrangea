@@ -162,6 +162,7 @@ prompt_hydrangea_setup() {
     fmt_branch="%F{${TEXT_COLOR_WHITE}}%b%f%u%c%f"
     fmt_action="%F{red}[%a]%f"
 
+    autoload -U add-zsh-hook
 	add-zsh-hook precmd prompt_hydrangea_precmd
 	add-zsh-hook preexec prompt_hydrangea_preexec
 	add-zsh-hook chpwd prompt_hydrangea_chpwd
