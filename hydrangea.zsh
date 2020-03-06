@@ -49,6 +49,7 @@ POWERLINE_BASE_COLOR='10'
 POWERLINE_DANGER_COLOR='9'
 
 POWERLINE_ACCENT_COLOR1="4" # normal blue (used for git indicator)
+POWERLINE_ACCENT_COLOR2="3" # normal yellow (used for background job)
 
 
 # Default vi mode.
@@ -150,6 +151,8 @@ prompt_hydrangea_render() {
 
     # for git branch and status
     POWERLINE_LEFT_GIT="%K{${POWERLINE_ACCENT_COLOR1}}%F{${TEXT_COLOR_WHITE}} $NERD_FONT_GIT "'${vcs_info_msg_0_}'" %k%f%K{"'${status_color}'"%}%F{${POWERLINE_ACCENT_COLOR1}}"$POWERLINE_SEPARATOR_FILL
+
+    # POWERLINE_BACKGROUND_JOB="%(1j.%j.)"
 
     POWERLINE_LEFT_EXIT_CODE="%F{${TEXT_COLOR_BLACK}}"'${last_exit_code}'"%k%f%{${reset_color}%}%F{"'${status_color}'"}""${POWERLINE_SEPARATOR_FILL}%{${reset_color}%}"
 
