@@ -105,10 +105,12 @@ prompt_hydrangea_precmd () {
         vcs_info #&& echo "get VCS_INFO precmd"
     fi
     chpwd_flag=false
+    echo -ne ${VI_INSERT_CURSOR}
 }
 
 prompt_hydrangea_preexec () {
     chpwd_flag=false
+    echo -ne ${VI_NORMAL_CURSOR}
 }
 
 prompt_hydrangea_chpwd () {
